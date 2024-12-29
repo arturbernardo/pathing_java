@@ -1,0 +1,6 @@
+/.gradle
+/shelf/
+/workspace.xml
+/.idea
+*.class
+/build
