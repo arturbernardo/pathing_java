@@ -29,9 +29,9 @@ public class KeyHandler implements KeyListener {
             dp.autoSearch();
         }
 
- //       if (code == KeyEvent.VK_ESCAPE) {
- //           dp.restart();
- //       }
+        if (code == KeyEvent.VK_ESCAPE) {
+            dp.restart();
+        }
     }
 
     @Override

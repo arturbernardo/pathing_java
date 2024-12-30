@@ -27,10 +27,16 @@ public class DemoPanel extends JPanel {
         this.addKeyListener(new KeyHandler(this));
         this.setFocusable(true);
 
+        initContext();
+    }
+
+    private void initContext() {
         int col = 0;
         int row = 0;
 
         while (col < maxCol && row < maxRow) {
+            // clean nodes if they exist
+            if (node[col][row] != null) this.remove(node[col][row]);
             node[col][row] = new Node(col, row);
             this.add(node[col][row]);
 
@@ -60,6 +66,7 @@ public class DemoPanel extends JPanel {
 
         setCostOnNodes();
     }
+
     private void setStartNode(int col, int row) {
         node[col][row].setAsStart();
         startNode = node[col][row];
@@ -191,13 +198,15 @@ public class DemoPanel extends JPanel {
         }
     }
 
-//    public void restart() {
-//        step = 0;
-//
-//        currentNode = startNode;
-//        openList = new ArrayList<>();
-//        checkedList = new ArrayList<>();
-//
-//        goalReached = false;
-//    }
+    public void restart() {
+        step = 0;
+
+        currentNode = startNode;
+        openList = new ArrayList<>();
+        checkedList = new ArrayList<>();
+
+        goalReached = false;
+
+        initContext();
+    }
 }
